@@ -2,7 +2,7 @@
   <div
     :id="`${id}-DatePicker`"
     :class="{'flex-1 inline': inline, 'p-0 range flex-1': range, 'is-dark': dark, 'has-shortcuts': range && !noShortcuts}"
-    class="datepicker-container flex flex-fixed"
+    class="datepicker-container ctk-flex flex-fixed"
   >
     <RangeShortcuts
       v-if="range && !noShortcuts"
@@ -14,12 +14,12 @@
       @change-range="$emit('input', $event)"
     />
     <div class="calendar lm-w-100">
-      <div class="datepicker-controls flex align-center justify-content-center">
+      <div class="datepicker-controls ctk-flex align-center justify-content-center">
         <div class="arrow-month h-100">
           <button
             type="button"
             tabindex="-1"
-            class="datepicker-button datepicker-prev text-center h-100 flex align-center"
+            class="datepicker-button datepicker-prev text-center h-100 ctk-flex align-center"
             @click="changeMonth('prev')"
           >
             <svg viewBox="0 0 1000 1000">
@@ -28,11 +28,11 @@
           </button>
         </div>
         <div
-          class="datepicker-container-label flex-1 flex justify-content-center"
+          class="datepicker-container-label flex-1 ctk-flex justify-content-center"
         >
           <TransitionGroup
             :name="transitionLabelName"
-            class="h-100 flex align-center flex-1 flex justify-content-right"
+            class="h-100 ctk-flex align-center flex-1 ctk-flex justify-content-right"
           >
             <CustomButton
               v-for="m in [month]"
@@ -47,7 +47,7 @@
           </TransitionGroup>
           <TransitionGroup
             :name="transitionLabelName"
-            class="h-100 flex align-center flex-1 flex"
+            class="h-100 ctk-flex align-center flex-1 flex"
           >
             <CustomButton
               v-for="y in [year]"
@@ -65,7 +65,7 @@
           <button
             type="button"
             tabindex="-1"
-            class="datepicker-button datepicker-next text-center h-100 flex align-center justify-content-right"
+            class="datepicker-button datepicker-next text-center h-100 ctk-flex align-center justify-content-right"
             @click="changeMonth('next')"
           >
             <svg viewBox="0 0 1000 1000">
@@ -107,7 +107,7 @@
               :disabled="isDisabled(day) || isWeekEndDay(day)"
               type="button"
               tabindex="-1"
-              class="datepicker-day flex align-center justify-content-center"
+              class="datepicker-day ctk-flex align-center justify-content-center"
               @click="selectDate(day)"
             >
               <span
@@ -130,7 +130,7 @@
             <div
               v-for="end in endEmptyDays"
               :key="end + 'endEmptyDay'"
-              class="datepicker-day flex align-center justify-content-center"
+              class="datepicker-day ctk-flex align-center justify-content-center"
             />
           </div>
         </TransitionGroup>

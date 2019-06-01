@@ -3,13 +3,13 @@
     ref="time-picker"
     :class="{'inline': inline, 'is-dark': dark, 'with-border': !onlyTime }"
     :style="[{height: `${height}px`}]"
-    class="time-picker flex flex-fixed flex-1"
+    class="time-picker ctk-flex flex-fixed flex-1"
   >
     <div
       v-for="column in columns"
       :key="column.type"
       :ref="column.type"
-      class="time-picker-column flex-1 flex flex-direction-column text-center"
+      class="time-picker-column flex-1 ctk-flex flex-direction-column text-center"
       @scroll="noScrollEvent
         ? null
         : column.type === 'hours' ? onScrollHours($event) : column.type === 'minutes' ? onScrollMinutes($event) : onScrollApms($event)
@@ -25,7 +25,7 @@
           :key="item.item"
           type="button"
           tabindex="-1"
-          class="time-picker-column-item flex align-center justify-content-center"
+          class="time-picker-column-item ctk-flex align-center justify-content-center"
           :class="{
             active: isActive(column.type, item.value),
             disabled: item.disabled

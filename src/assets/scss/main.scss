@@ -50,7 +50,7 @@
   }
 }
 @media screen and (max-width: 1024px) {
-  .components-container.flex {
+  .components-container.ctk-flex {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -115,7 +115,7 @@
   }
 }
 @media screen and (max-width: 1024px) {
-  .components-container.flex {
+  .components-container.ctk-flex {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;

@@ -1,9 +1,9 @@
 <template>
   <div
-    class="year-month-selector flex flex-direction-column"
+    class="year-month-selector ctk-flex flex-direction-column"
     :class="{'dark': dark}"
   >
-    <div class="flex justify-content-right">
+    <div class="ctk-flex justify-content-right">
       <CustomButton
         :color="dark ? '#757575' : '#424242'"
         :dark="dark"
@@ -15,7 +15,7 @@
         </span>
       </CustomButton>
     </div>
-    <div class="flex-1 flex flex-wrap justify-content-between align-center">
+    <div class="flex-1 ctk-flex flex-wrap justify-content-between align-center">
       <CustomButton
         v-for="(m, index) in months"
         :key="index"

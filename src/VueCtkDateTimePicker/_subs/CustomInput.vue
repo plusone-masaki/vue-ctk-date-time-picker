@@ -9,7 +9,7 @@
       'is-dark': dark,
       'no-label': noLabel
     }, inputSize]"
-    class="field flex align-center"
+    class="field ctk-flex align-center"
     @click="focusInput"
   >
     <input

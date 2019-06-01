@@ -50,7 +50,7 @@
         v-if="devMode"
         class="container"
       >
-        <div class="flex flex-wrap align-center justify-content-center">
+        <div class="ctk-flex flex-wrap align-center justify-content-center">
           <div
             :class="{'dark': darkMode}"
             class="component-container"
@@ -77,7 +77,7 @@
         v-else
         class="container"
       >
-        <div class="components-container flex flex-wrap">
+        <div class="components-container ctk-flex flex-wrap">
           <div
             v-for="demo in demoComponents"
             :key="demo.title"
@@ -87,7 +87,7 @@
             <h3>{{ demo.title }}</h3>
             <h4>{{ demo.description }}</h4>
             <hr>
-            <div class="flex flex-wrap justify-content-between">
+            <div class="ctk-flex flex-wrap justify-content-between">
               <p><b>Inititale value</b> : {{ demo.initial }}</p>
               <p><b>v-model</b> = {{ demo.value || 'null' }}</p>
             </div>
@@ -100,7 +100,7 @@
             </button>
             <div
               v-show="demo.editOption"
-              class="flex flex-wrap component options"
+              class="ctk-flex flex-wrap component options"
             >
               <div class="flex-1">
                 <h4 style="margin-bottom: 10px;">

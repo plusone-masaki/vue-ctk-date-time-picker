@@ -20,7 +20,7 @@
 
     <div
       v-if="!range"
-      class="flex justify-content-between"
+      class="ctk-flex justify-content-between"
     >
       <TransitionGroup
         v-if="!onlyTime"
@@ -42,7 +42,7 @@
       >
         <TransitionGroup
           :name="transitionName"
-          class="dots-text time-number header-picker-hour flex justify-content-right"
+          class="dots-text time-number header-picker-hour ctk-flex justify-content-right"
         >
           <span
             v-for="hour in [dateTime.format('HH')]"
@@ -54,7 +54,7 @@
         <span>:</span>
         <TransitionGroup
           :name="transitionName"
-          class="dots-text time-number header-picker-minute flex justify-content-left"
+          class="dots-text time-number header-picker-minute ctk-flex justify-content-left"
         >
           <span
             v-for="min in [dateTime.format('mm')]"
@@ -67,7 +67,7 @@
       <div
         v-else-if="!noTime && value"
         :style="[getTimePickerWidth()]"
-        class="header-picker-time flex flex-fixed"
+        class="header-picker-time ctk-flex flex-fixed"
         :class="[!onlyTime ? 'pl-10' : 'flex-1 justify-content-center']"
       >
         <TransitionGroup
@@ -86,7 +86,7 @@
       <div
         v-else-if="!noTime"
         :style="[getTimePickerWidth()]"
-        class="header-picker-time flex flex-fixed"
+        class="header-picker-time ctk-flex flex-fixed"
         :class="[!onlyTime ? 'pl-10' : 'flex-1 justify-content-center']"
       >
         <span>...</span>
@@ -94,9 +94,9 @@
     </div>
     <div
       v-else
-      class="flex justify-content-between"
+      class="ctk-flex justify-content-between"
     >
-      <div class="flex justify-content-between">
+      <div class="ctk-flex justify-content-between">
         <span class="header-picker-range dots-text flex-1">
           {{ getRangeDatesFormatted }}
         </span>

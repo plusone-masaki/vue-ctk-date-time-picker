@@ -1,11 +1,11 @@
 <template>
   <div
     :class="[{'is-dark': dark}]"
-    class="datepicker-buttons-container flex justify-content-right"
+    class="datepicker-buttons-container ctk-flex justify-content-right"
   >
     <button
       v-if="hasButtonNow"
-      class="datepicker-button now flex align-center justify-content-center"
+      class="datepicker-button now ctk-flex align-center justify-content-center"
       :class="{'right-margin': hasButtonValidate}"
       tabindex="-1"
       type="button"
@@ -26,7 +26,7 @@
       v-if="hasButtonValidate"
       type="button"
       tabindex="-1"
-      class="datepicker-button validate flex align-center justify-content-center"
+      class="datepicker-button validate ctk-flex align-center justify-content-center"
       @click.stop="$emit('validate')"
     >
       <span
@@ -93,7 +93,7 @@
     border-top: 1px solid #EAEAEA;
     background-color: #FFF;
     z-index: 1;
-    display: flex !important;
+    display: ctk-flex !important;
     .datepicker-button {
       padding: 0px 20px;
       position: relative;

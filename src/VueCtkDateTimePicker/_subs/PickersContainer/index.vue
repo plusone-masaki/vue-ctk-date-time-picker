@@ -11,7 +11,7 @@
     >
       <div
         :style="[responsivePosition, width]"
-        class="datepicker flex flex-direction-column"
+        class="datepicker ctk-flex flex-direction-column"
         :class="{ 'right': right }"
       >
         <HeaderPicker
