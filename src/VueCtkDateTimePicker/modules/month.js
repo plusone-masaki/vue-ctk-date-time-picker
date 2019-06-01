@@ -20,7 +20,7 @@ export default class Month {
   }
 
   getYear () {
-    return this.start.format('YYYY')
+    return this.start.format('YYYY年')
   }
 
   getWeeks () {

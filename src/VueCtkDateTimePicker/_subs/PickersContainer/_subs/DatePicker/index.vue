@@ -32,7 +32,7 @@
         >
           <TransitionGroup
             :name="transitionLabelName"
-            class="h-100 ctk-flex align-center flex-1 ctk-flex"
+            class="h-100 ctk-flex align-center flex-1 ctk-flex justify-content-right"
           >
             <CustomButton
               v-for="y in [year]"
@@ -47,7 +47,7 @@
           </TransitionGroup>
           <TransitionGroup
             :name="transitionLabelName"
-            class="h-100 ctk-flex align-center flex-1 ctk-flex justify-content-right"
+            class="h-100 ctk-flex align-center flex-1 ctk-flex"
           >
             <CustomButton
               v-for="m in [month]"
