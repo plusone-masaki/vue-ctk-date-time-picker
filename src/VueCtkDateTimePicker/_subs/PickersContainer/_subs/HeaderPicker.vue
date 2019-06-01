@@ -139,10 +139,10 @@
         return date
       },
       year () {
-        return this.dateTime.format('YYYY')
+        return this.dateTime.format('YYYY年')
       },
       getDateFormatted () {
-        return this.dateTime.format('MMM Do d')
+        return this.dateTime.format('MMM Do (dd)')
       },
       isFormatTwelve () {
         return this.format ? (this.format.indexOf('a') > -1) || (this.format.indexOf('A') > -1) : false
