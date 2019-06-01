@@ -58,7 +58,7 @@
             <p>Inititale value : '2018-04-05T04:26'</p>
             <p>v-model = {{ value2 || 'null' }}</p>
             <br>
-            <div class="flex">
+            <div class="ctk-flex">
               <CtkDateTimePicker
                 v-model="value2"
                 color="purple"
@@ -109,7 +109,7 @@
                 <div
                   v-for="str in stringOptions"
                   :key="str"
-                  class="flex"
+                  class="ctk-flex"
                   style="margin-bottom: 10px;"
                 >
                   <input
@@ -126,7 +126,7 @@
                 <div
                   v-for="int in intOptions"
                   :key="int"
-                  class="flex"
+                  class="ctk-flex"
                   style="margin-bottom: 10px;"
                 >
                   <input
@@ -145,7 +145,7 @@
                 <div
                   v-for="opt in booleanOptions"
                   :key="opt"
-                  class="flex"
+                  class="ctk-flex"
                   style="margin-bottom: 10px;"
                 >
                   <CheckboxInput

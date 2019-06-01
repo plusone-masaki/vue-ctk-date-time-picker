@@ -6,7 +6,7 @@
       v-show="visible || inline"
       :class="{'inline': inline, 'is-dark': dark, 'visible': visible}"
       :style="responsivePosition"
-      class="datetimepicker flex"
+      class="datetimepicker ctk-flex"
       @click.stop
     >
       <div
@@ -27,7 +27,7 @@
           :dark="dark"
           :range="range"
         />
-        <div class="pickers-container flex">
+        <div class="pickers-container ctk-flex">
           <!-- NEED 'YYYY-MM-DD' format -->
           <DatePicker
             v-if="!onlyTime"

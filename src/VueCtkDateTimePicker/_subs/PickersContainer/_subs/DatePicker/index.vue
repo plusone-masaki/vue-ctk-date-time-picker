@@ -32,6 +32,21 @@
         >
           <TransitionGroup
             :name="transitionLabelName"
+            class="h-100 ctk-flex align-center flex-1 ctk-flex"
+          >
+            <CustomButton
+              v-for="y in [year]"
+              :key="y"
+              class="date-buttons lm-fs-16 padding-button"
+              :color="color"
+              :dark="dark"
+              @click="selectingYearMonth = 'year'"
+            >
+              {{ year }}
+            </CustomButton>
+          </TransitionGroup>
+          <TransitionGroup
+            :name="transitionLabelName"
             class="h-100 ctk-flex align-center flex-1 ctk-flex justify-content-right"
           >
             <CustomButton
@@ -43,21 +58,6 @@
               @click="selectingYearMonth = 'month'"
             >
               {{ monthFormatted }}
-            </CustomButton>
-          </TransitionGroup>
-          <TransitionGroup
-            :name="transitionLabelName"
-            class="h-100 ctk-flex align-center flex-1 flex"
-          >
-            <CustomButton
-              v-for="y in [year]"
-              :key="y"
-              class="date-buttons lm-fs-16 padding-button"
-              :color="color"
-              :dark="dark"
-              @click="selectingYearMonth = 'year'"
-            >
-              {{ year }}
             </CustomButton>
           </TransitionGroup>
         </div>
@@ -86,7 +86,7 @@
           <div
             v-for="m in [month]"
             :key="m.month"
-            class="datepicker-days flex"
+            class="datepicker-days ctk-flex"
           >
             <div
               v-for="start in weekStart"

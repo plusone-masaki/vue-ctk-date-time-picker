@@ -36,7 +36,7 @@
       </TransitionGroup>
       <div
         v-if="!isFormatTwelve && !noTime && value"
-        class="header-picker-time flex"
+        class="header-picker-time ctk-flex"
         :style="[getTimePickerWidth()]"
         :class="[!onlyTime ? 'pl-10' : 'flex-1 justify-content-center']"
       >

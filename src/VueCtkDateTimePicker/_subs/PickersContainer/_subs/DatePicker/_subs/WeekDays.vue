@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{'is-dark': dark}"
-    class="week-days flex"
+    class="week-days ctk-flex"
   >
     <div
       v-for="(weekDay, index) in weekDays"
