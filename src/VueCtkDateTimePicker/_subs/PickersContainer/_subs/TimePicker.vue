@@ -9,6 +9,7 @@
       v-for="column in columns"
       :key="column.type"
       :ref="column.type"
+      :class="[`time-picker-column-${column.type}`]"
       class="time-picker-column flex-1 ctk-flex flex-direction-column text-center"
       @scroll="noScrollEvent
         ? null
@@ -90,18 +91,19 @@
   export default {
     name: 'TimePicker',
     props: {
-      value: { type: String, default: String },
-      format: { type: String, default: String },
-      minuteInterval: { type: [String, Number], default: Number },
-      height: { type: Number, default: Number, required: true },
-      color: { type: String, default: String },
-      inline: { type: Boolean, default: Boolean },
-      visible: { type: Boolean, default: Boolean },
-      onlyTime: { type: Boolean, default: Boolean },
-      dark: { type: Boolean, default: Boolean },
-      disabledHours: { type: Array, default: Array },
-      minTime: { type: String, default: String },
-      maxTime: { type: String, default: String }
+      value: { type: String, default: null },
+      format: { type: String, default: null },
+      minuteInterval: { type: [String, Number], default: 1 },
+      height: { type: Number, required: true },
+      color: { type: String, default: null },
+      inline: { type: Boolean, default: null },
+      visible: { type: Boolean, default: null },
+      onlyTime: { type: Boolean, default: null },
+      dark: { type: Boolean, default: null },
+      disabledHours: { type: Array, default: () => ([]) },
+      minTime: { type: String, default: null },
+      behaviour: { type: Object, default: () => ({}) },
+      maxTime: { type: String, default: null }
     },
     data () {
       return {
@@ -194,7 +196,7 @@
             .map((_, i) => i)
             .filter(h => h >= minEnabledHour && h <= maxEnabledHour)
 
-          if (!enabledHours.includes(this.hour)) {
+          if (!enabledHours.includes(this.hour) && this.behaviour && this.behaviour.time && this.behaviour.time.nearestIfDisabled) {
             this.hour = enabledHours[0] // eslint-disable-line
             this.emitValue()
           }
@@ -240,7 +242,7 @@
             .map((_, i) => i)
             .filter(m => m >= minEnabledMinute && m <= maxEnabledMinute)
 
-          if (!enabledMinutes.includes(this.minute)) {
+          if (!enabledMinutes.includes(this.minute) && this.behaviour && this.behaviour.time && this.behaviour.time.nearestIfDisabled) {
             this.minute = enabledMinutes[0] // eslint-disable-line
             this.emitValue()
           }
@@ -333,7 +335,16 @@
         const hourToSet = this.isTwelveFormat && (tmpHour === 12 || tmpHour === 0)
           ? tmpHour === 0 ? 12 : 24
           : tmpHour
-        this.hour = this.isHoursDisabled(hourToSet) ? this.getAvailableHour() : hourToSet
+
+        /**
+         * Here we have two different behaviours. If the behaviour `nearestIfDisabled` is enabled
+         * and the selected hour is disabled, we set the hour to the nearest hour available.
+         * Otherwise just set the hour to the current value.
+         */
+        this.hour = this.behaviour && this.behaviour.time && this.behaviour.time.nearestIfDisabled && this.isHoursDisabled(hourToSet)
+          ? this.getAvailableHour()
+          : hourToSet
+
         this.minute = parseInt(moment(this.value, this.format).format('mm'))
         this.apm = this.apms && this.value
           ? this.hour > 12
@@ -391,7 +402,7 @@
           this.hour = item
         } else if (type === 'minutes') {
           this.minute = item
-        } else if (type === 'apms') {
+        } else if (type === 'apms' && this.apm !== item) {
           const newHour = item === 'pm' || item === 'PM' ? this.hour + 12 : this.hour - 12
           this.hour = newHour
           this.apm = item
@@ -502,6 +513,14 @@
           .time-picker-column-item-effect {
             transform: scale(0) !important;
             opacity: 0 !important;
+          }
+
+          &.active {
+            .time-picker-column-item-effect {
+              background-color: #eaeaea !important;
+              transform: scale(1) !important;
+              opacity: 1 !important;
+            }
           }
         }
       }

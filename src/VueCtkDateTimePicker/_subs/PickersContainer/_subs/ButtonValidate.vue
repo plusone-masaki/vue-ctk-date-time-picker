@@ -52,16 +52,20 @@
 
 <script>
   import moment from 'moment'
+
   export default {
     name: 'ButtonValidate',
     props: {
-      dark: { type: Boolean, default: Boolean },
-      buttonColor: { type: String, default: String },
-      buttonNowTranslation: { type: String, default: String },
-      onlyTime: { type: Boolean, default: Boolean },
-      noButtonNow: { type: Boolean, default: Boolean },
-      range: { type: Boolean, default: Boolean },
-      hasButtonValidate: { type: Boolean, default: Boolean }
+      /**
+       * TODO: Remove wrong default values
+       */
+      dark: { type: Boolean, default: null },
+      buttonColor: { type: String, default: null },
+      buttonNowTranslation: { type: String, default: null },
+      onlyTime: { type: Boolean, default: null },
+      noButtonNow: { type: Boolean, default: null },
+      range: { type: Boolean, default: null },
+      hasButtonValidate: { type: Boolean, default: null }
     },
     computed: {
       colorStyle () {
@@ -93,9 +97,9 @@
     border-top: 1px solid #EAEAEA;
     background-color: #FFF;
     z-index: 1;
-    display: ctk-flex !important;
+    display: flex !important;
     .datepicker-button {
-      padding: 0px 20px;
+      padding: 0 20px;
       position: relative;
       background-color: white;
       border: 1px solid transparent;
